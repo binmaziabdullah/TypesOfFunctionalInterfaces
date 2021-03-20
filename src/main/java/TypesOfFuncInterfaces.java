@@ -1,11 +1,13 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
-    /*following are the important Functional Interfaces
+/*following are the important Functional Interfaces
     * 1.Predicate - predicate is the fi present util.function which takes parameter as T which his type of argument
     * and check the boolean condition and return the boolean,it has only one Am test().
 
@@ -36,16 +38,25 @@ public class TypesOfFuncInterfaces {
         }
         System.out.println();
 
+        List<String> list = new ArrayList<>();
+        Consumer<List<String>> stringConsumer = s -> {
+            list.addAll(Arrays.asList("Shafay","Sahil","Zahid"));
+            System.out.println(list);
+        };
+        stringConsumer.accept(list);
+        System.out.println();
+
         Function<Integer, Double> Function = integer -> (double) (integer * integer);
         System.out.println("The square root of the given number is"+" "+Function.apply(5));
         System.out.println();
 
 
-        Student s = new Student("BOM","Sahil");
+
+        /*Student s = new Student("BOM","Sahil");
         Consumer<Student> studentConsumer = students1 -> students1.setName("Sahil Khan");
         studentConsumer.accept(s);
         System.out.println(s.getName());
-        System.out.println();
+        System.out.println();*/
 
 
         Supplier<String> stringSupplier = () -> "Hello this is Supplier";
